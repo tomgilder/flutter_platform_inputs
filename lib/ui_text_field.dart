@@ -114,14 +114,24 @@ class _UiTextFieldState extends State<UiTextField> {
     super.initState();
 
     if (widget.focusNode != null) {
+      // TODO: remove listener
+      // TODO: handle didUpdateWidget
       widget.focusNode.addListener(() {
         if (widget.focusNode.hasFocus) {
           _channel.invokeMethod("focus");
         }
       });
     }
-  }
 
+    if (widget.controller != null) {
+      // TODO: remove listener
+      // TODO: handle didUpdateWidget
+      widget.controller.addListener(() {
+        _channel.invokeMethod("setText", { "text": widget.controller.text ?? "" });
+      });
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(

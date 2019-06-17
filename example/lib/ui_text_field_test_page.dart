@@ -8,6 +8,7 @@ class UiTextFieldTestPage extends StatefulWidget {
 
 class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
   final FocusNode _focusNode = FocusNode();
+  final TextEditingController _changeTextController = TextEditingController();
 
   String _onChangedText = "...it will show here";
   String _onSubmittedText = "...it will show here on submit";
@@ -21,26 +22,22 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
       body: ListView(
         children: [
           Item(title: "Plain UiTextField", child: UiTextField()),
-
           Item(
               title: "Placeholder UiTextField",
               child: UiTextField(
                 placeholder: "Placeholder",
               )),
-
           Item(
               title: "Pre-filled UiTextField",
               child: UiTextField(
                 controller: TextEditingController(text: "Text"),
               )),
-
           Item(
               title: "Password UiTextField",
               child: UiTextField(
                 obsecureText: true,
                 textContentType: TextContentType.password,
               )),
-
           Item(
             title: "onChanged test",
             child: Column(children: [
@@ -55,7 +52,6 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
               Text(_onChangedText)
             ]),
           ),
-
           Item(
             title: "onSubmitted test",
             child: Column(children: [
@@ -70,7 +66,6 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
               Text(_onSubmittedText)
             ]),
           ),
-          
           Item(
               title: "Focus test text field",
               child: Column(
@@ -84,6 +79,21 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
                   )
                 ],
               )),
+              
+          Item(
+              title: "Change text from Flutter",
+              child: Column(
+                children: [
+                  FlatButton(
+                    child: Text("Tap here to change text"),
+                    onPressed: () => _changeTextController.text = DateTime.now().toString(),
+                  ),
+                  UiTextField(
+                    controller: _changeTextController,  
+                  )
+                ],
+              )),
+
           SizedBox(
             height: 1000,
           )

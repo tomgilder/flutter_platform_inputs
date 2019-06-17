@@ -47,12 +47,23 @@
 
 - (void)onMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     if ([[call method] isEqualToString:@"focus"]) {
-        [_textField becomeFirstResponder];
+        [self onFocus:call result:result];
+    } else if ([[call method] isEqualToString:@"setText"]) {
+        [self onSetText:call result:result];
     } else {
         result(FlutterMethodNotImplemented);
     }
 }
 
+- (void)onFocus:(FlutterMethodCall*)call result:(FlutterResult)result {
+    [_textField becomeFirstResponder];
+    result(nil);
+}
+
+- (void)onSetText:(FlutterMethodCall*)call result:(FlutterResult)result {
+    _textField.text = call.arguments[@"text"];
+    result(nil);
+}
 
 - (UIView*)view {
     return _textField;
