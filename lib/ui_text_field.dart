@@ -110,6 +110,18 @@ class _UiTextFieldState extends State<UiTextField> {
   FocusNode _focusNode;
   FocusNode get _effectiveFocusNode => widget.focusNode ?? (_focusNode ??= FocusNode());
 
+  @override void initState() {
+    super.initState();
+
+    if (widget.focusNode != null) {
+      widget.focusNode.addListener(() {
+        if (widget.focusNode.hasFocus) {
+          _channel.invokeMethod("focus");
+        }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(

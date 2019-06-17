@@ -13,13 +13,11 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    NSLog(@"ObjC: textFieldDidBeginEditing");
     [_channel invokeMethod:@"textFieldDidBeginEditing"
                  arguments:nil];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSLog(@"ObjC: textFieldDidEndEditing");
     [_channel invokeMethod:@"textFieldDidEndEditing"
                  arguments:@{ @"text": textField.text }];
 }

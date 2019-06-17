@@ -36,9 +36,23 @@
         [_textField addTarget:self
                        action:@selector(textFieldDidChange:)
              forControlEvents:UIControlEventEditingChanged];
+        
+        __weak __typeof__(self) weakSelf = self;
+        [_channel setMethodCallHandler:^(FlutterMethodCall* call, FlutterResult result) {
+            [weakSelf onMethodCall:call result:result];
+        }];
     }
     return self;
 }
+
+- (void)onMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
+    if ([[call method] isEqualToString:@"focus"]) {
+        [_textField becomeFirstResponder];
+    } else {
+        result(FlutterMethodNotImplemented);
+    }
+}
+
 
 - (UIView*)view {
     return _textField;

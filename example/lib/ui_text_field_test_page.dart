@@ -10,6 +10,7 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
   final FocusNode _focusNode = FocusNode();
 
   String _onChangedText = "...it will show here";
+  String _onSubmittedText = "...it will show here on submit";
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
       body: ListView(
         children: [
           Item(title: "Plain UiTextField", child: UiTextField()),
-          
+
           Item(
               title: "Placeholder UiTextField",
               child: UiTextField(
@@ -54,13 +55,28 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
               Text(_onChangedText)
             ]),
           ),
+
+          Item(
+            title: "onSubmitted test",
+            child: Column(children: [
+              UiTextField(
+                placeholder: "Type something here and return...",
+                onSubmitted: (value) {
+                  setState(() {
+                    _onSubmittedText = value;
+                  });
+                },
+              ),
+              Text(_onSubmittedText)
+            ]),
+          ),
           
           Item(
-              title: "TODO: Focus test text field",
+              title: "Focus test text field",
               child: Column(
                 children: [
                   FlatButton(
-                    child: Text("TODO: Tap here to focus text field"),
+                    child: Text("Tap here to focus text field"),
                     onPressed: () => FocusScope.of(context).requestFocus(_focusNode),
                   ),
                   UiTextField(
