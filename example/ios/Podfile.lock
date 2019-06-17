@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - platform_inputs (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - platform_inputs (from `.symlinks/plugins/platform_inputs/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  platform_inputs:
+    :path: ".symlinks/plugins/platform_inputs/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  platform_inputs: 5b1af413729f05955ffe4510e391454307e116c6
+
+PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+
+COCOAPODS: 1.7.1
