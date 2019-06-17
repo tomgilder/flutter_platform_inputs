@@ -25,6 +25,7 @@
         _textField.placeholder = args[@"placeholder"];
         _textField.keyboardType = [self keyboardTypeFromString:args[@"textContentType"]];
         _textField.secureTextEntry = [args[@"obsecureText"] boolValue];
+        _textField.textAlignment = [self textAlignmentFromString:args[@"textAlign"]];
         
         if (@available(iOS 10.0, *)) {
             _textField.textContentType = [self textContentTypeFromString:args[@"textContentType"]];
@@ -192,6 +193,37 @@
     } else {
         return nil;
     }
+}
+
+- (NSTextAlignment)textAlignmentFromString:(NSString*)textAlignment {
+    if (!textAlignment || [textAlignment isKindOfClass:[NSNull class]]) {
+        return NSTextAlignmentNatural;
+    }
+    
+    if ([textAlignment isEqualToString:@"TextAlign.left"]) {
+        return NSTextAlignmentLeft;
+    } else if ([textAlignment isEqualToString:@"TextAlign.right"]) {
+        return NSTextAlignmentRight;
+    } else if ([textAlignment isEqualToString:@"TextAlign.center"]) {
+        return NSTextAlignmentCenter;
+    } else if ([textAlignment isEqualToString:@"TextAlign.justify"]) {
+        return NSTextAlignmentJustified;
+    } else if ([textAlignment isEqualToString:@"TextAlign.end"]) {
+        return ([self layoutDirection] == UIUserInterfaceLayoutDirectionLeftToRight)
+            ? NSTextAlignmentRight
+            : NSTextAlignmentLeft;
+    }
+    
+    // TextAlign.start
+    return NSTextAlignmentNatural;
+}
+
+- (UIUserInterfaceLayoutDirection)layoutDirection {
+    if (@available(iOS 9.0, *)) {
+        return [UIView userInterfaceLayoutDirectionForSemanticContentAttribute:_textField.semanticContentAttribute];
+    }
+    
+    return UIApplication.sharedApplication.userInterfaceLayoutDirection;
 }
 
 @end

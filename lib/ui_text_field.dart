@@ -68,7 +68,8 @@ class UiTextField extends StatefulWidget {
     this.obsecureText = false,
     this.onChanged,
     this.onSubmitted,
-    this.focusNode
+    this.focusNode,
+    this.textAlign = TextAlign.start,
   }) : super(key: key);
   
   /// Controls the text being edited.
@@ -96,6 +97,8 @@ class UiTextField extends StatefulWidget {
   final ValueChanged<String> onSubmitted;
 
   final FocusNode focusNode;
+
+  final TextAlign textAlign;
 
   @override
   State<StatefulWidget> createState() => _UiTextFieldState();
@@ -160,6 +163,7 @@ class _UiTextFieldState extends State<UiTextField> {
       "textContentType": widget.textContentType?.toString(),
       "keyboardType": widget.keyboardType?.toString(),
       "obsecureText": widget.obsecureText,
+      "textAlign": widget.textAlign.toString()
     };
   }
 

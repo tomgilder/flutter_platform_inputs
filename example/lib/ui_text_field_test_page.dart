@@ -94,6 +94,19 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
                 ],
               )),
 
+          Item(
+            title: "Aligned UiTextFields",
+            child: Column(
+              children: <Widget>[
+                UiTextField(textAlign: TextAlign.left, controller: TextEditingController(text: "left"),),
+                UiTextField(textAlign: TextAlign.right, controller: TextEditingController(text: "right"),),
+                UiTextField(textAlign: TextAlign.center, controller: TextEditingController(text: "center"),),
+                UiTextField(textAlign: TextAlign.justify, controller: TextEditingController(text: "justify"),),
+                UiTextField(textAlign: TextAlign.start, controller: TextEditingController(text: "start"),),
+                UiTextField(textAlign: TextAlign.end, controller: TextEditingController(text: "end"),),
+              ],
+            )
+          ),
           SizedBox(
             height: 1000,
           )
