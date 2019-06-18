@@ -1,8 +1,8 @@
 name: platform_inputs
-description: A new flutter plugin project.
+description: Native text fields from Flutter. Currently iOS-only with support for UITextField.
 version: 0.0.1
-author:
-homepage:
+author: Tom Gilder <tom@gilder.dev>
+homepage: https://github.com/tomgilder/flutter_platform_inputs
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
