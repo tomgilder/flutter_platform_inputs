@@ -23,7 +23,7 @@
         _textField = [[UITextField alloc] initWithFrame:frame];
         _textField.text = args[@"text"];
         _textField.placeholder = args[@"placeholder"];
-        _textField.keyboardType = [self keyboardTypeFromString:args[@"textContentType"]];
+        _textField.keyboardType = [self keyboardTypeFromString:args[@"keyboardType"]];
         _textField.secureTextEntry = [args[@"obsecureText"] boolValue];
         _textField.textAlignment = [self textAlignmentFromString:args[@"textAlign"]];
         
