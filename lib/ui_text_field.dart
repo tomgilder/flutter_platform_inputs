@@ -195,6 +195,8 @@ class _UiTextFieldState extends State<UiTextField> {
 
   /// Editing stopped for the specified text field.
   void _textFieldDidEndEditing(String text) {
-    widget?.onSubmitted(text);
+    if (widget?.onSubmitted != null) {
+      widget.onSubmitted(text);
+    }
   }  
 }
