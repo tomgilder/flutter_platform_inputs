@@ -171,7 +171,7 @@ class _UiTextFieldState extends State<UiTextField> {
     switch (call.method) {
       case "onChanged":
         final String text = call.arguments["text"];
-        widget.onChanged(text);
+        _onTextFieldChanged(text);
         return null;
 
       case "textFieldDidBeginEditing":
@@ -185,6 +185,12 @@ class _UiTextFieldState extends State<UiTextField> {
     }
 
     throw MissingPluginException("UiTextField._onMethodCall: No handler for ${call.method}");
+  }
+
+  void _onTextFieldChanged(String text) {
+    if (text != null && widget?.onChanged != null) {
+      widget.onChanged(text);
+    }
   }
 
   // UITextFieldDelegate methods
