@@ -13,48 +13,49 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Plugin example app'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text("Hello! Welcome to the example app."),
-              MaterialButton(
-                  child: Text("UiTextField test page"),
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => UiTextFieldTestPage()));
-                  }),
-              Header("TextField:"),
-              TextField(),
-              Header("CupertinoTextField"),
-              CupertinoTextField(placeholder: "Placeholder"),
-              Header("UiTextField Text:"),
-              UiTextField(
-                focusNode: FocusNode(),
-              ),
-              Header("UiTextField Password:"),
-              UiTextField(
-                  placeholder: "Placeholder",
-                  textContentType: TextContentType.password,
-                  keyboardType: KeyboardType.defaultType,
-                  obsecureText: true,
-                  onChanged: (value) {
-                    print("UiTextField.onChanged: $value");
-                  },
-                  onSubmitted: (value) {
-                    print("UiTextField.onSubmitted: $value");
-                  },
-                  controller: _controller,
-                  focusNode: _focusNode),
-            ],
-          ),
+        appBar: AppBar(
+          title: const Text('Plugin example app'),
         ),
-      ),
-    );
+        body: ListView(
+          children: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text("Hello! Welcome to the example app."),
+                  MaterialButton(
+                      child: Text("UiTextField test page"),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => UiTextFieldTestPage()));
+                      }),
+                  Header("TextField:"),
+                  TextField(),
+                  Header("CupertinoTextField"),
+                  CupertinoTextField(placeholder: "Placeholder"),
+                  Header("UiTextField Text:"),
+                  UiTextField(
+                    focusNode: FocusNode(),
+                  ),
+                  Header("UiTextField Password:"),
+                  UiTextField(
+                      placeholder: "Placeholder",
+                      textContentType: TextContentType.password,
+                      keyboardType: KeyboardType.defaultType,
+                      obsecureText: true,
+                      onChanged: (value) {
+                        print("UiTextField.onChanged: $value");
+                      },
+                      onSubmitted: (value) {
+                        print("UiTextField.onSubmitted: $value");
+                      },
+                      controller: _controller,
+                      focusNode: _focusNode),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
 

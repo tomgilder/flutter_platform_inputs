@@ -28,31 +28,41 @@ enum TextContentType {
   creditCardNumber,
   username,
   password,
-  newPassword,          // iOS12+
-  oneTimeCode           // iOS12+
+  newPassword, // iOS12+
+  oneTimeCode // iOS12+
 }
 
 enum KeyboardType {
   /// Default type for the current input method.
   defaultType,
+
   /// Displays a keyboard which can enter ASCII characters
   asciiCapable,
+
   /// Numbers and assorted punctuation.
   numbersAndPunctuation,
+
   /// A type optimized for URL entry (shows . / .com prominently).
   url,
+
   /// A number pad with locale-appropriate digits (0-9, ۰-۹, ०-९, etc.). Suitable for PIN
   numberPad,
+
   /// A phone pad (1-9, *, 0, #, with letters under the numbers).
   phonePad,
+
   /// A type optimized for entering a person's name or phone number.
   namePhonePad,
+
   /// A type optimized for multiple email address entry (shows space @ . prominently).
   emailAddress,
+
   /// A number pad with a decimal point. iOS 4.1+.
   decimalPad,
+
   /// A type optimized for twitter text entry (easy access to @ #).
   twitter,
+
   /// A default keyboard type with URL-oriented addition (shows space . prominently).
   webSearch,
   // A number pad (0-9) that will always be ASCII digits. Falls back to KeyboardType.numberPad below iOS 10.
@@ -72,7 +82,7 @@ class UiTextField extends StatefulWidget {
     this.focusNode,
     this.textAlign = TextAlign.start,
   }) : super(key: key);
-  
+
   /// Controls the text being edited.
   ///
   /// If null, this widget will create its own [TextEditingController].
@@ -114,7 +124,8 @@ class _UiTextFieldState extends State<UiTextField> {
   FocusNode _focusNode;
   FocusNode get _effectiveFocusNode => widget.focusNode ?? (_focusNode ??= FocusNode());
 
-  @override void initState() {
+  @override
+  void initState() {
     super.initState();
 
     if (widget.focusNode != null) {
@@ -131,30 +142,25 @@ class _UiTextFieldState extends State<UiTextField> {
       // TODO: remove listener
       // TODO: handle didUpdateWidget
       widget.controller.addListener(() {
-        _channel.invokeMethod("setText", { "text": widget.controller.text ?? "" });
+        _channel.invokeMethod("setText", {"text": widget.controller.text ?? ""});
       });
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(
-        minHeight: 31,
-        maxHeight: 31
-      ),
+      constraints: BoxConstraints(minHeight: 31, maxHeight: 31),
       child: UiKitView(
-        viewType: "dev.gilder.tom/uitextfield",
-        creationParamsCodec: const StandardMessageCodec(),
-        creationParams: _buildCreationParams(),
-        onPlatformViewCreated: _createMethodChannel
-      ),
+          viewType: "dev.gilder.tom/uitextfield",
+          creationParamsCodec: const StandardMessageCodec(),
+          creationParams: _buildCreationParams(),
+          onPlatformViewCreated: _createMethodChannel),
     );
   }
 
   void _createMethodChannel(int nativeViewId) {
-    _channel = MethodChannel("dev.gilder.tom/uitextfield_$nativeViewId")
-      ..setMethodCallHandler(_onMethodCall);
+    _channel = MethodChannel("dev.gilder.tom/uitextfield_$nativeViewId")..setMethodCallHandler(_onMethodCall);
   }
 
   Map<String, dynamic> _buildCreationParams() {
@@ -214,9 +220,9 @@ class _UiTextFieldState extends State<UiTextField> {
   void _scrollIntoView() {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       context.findRenderObject().showOnScreen(
-        duration: _caretAnimationDuration,
-        curve: _caretAnimationCurve,
-      );
+            duration: _caretAnimationDuration,
+            curve: _caretAnimationCurve,
+          );
     });
   }
 }

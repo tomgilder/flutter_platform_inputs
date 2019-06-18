@@ -79,7 +79,6 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
                   )
                 ],
               )),
-              
           Item(
               title: "Change text from Flutter",
               child: Column(
@@ -89,46 +88,95 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
                     onPressed: () => _changeTextController.text = DateTime.now().toString(),
                   ),
                   UiTextField(
-                    controller: _changeTextController,  
+                    controller: _changeTextController,
                   )
                 ],
               )),
-
           Item(
-            title: "Aligned UiTextFields",
-            child: Column(
-              children: <Widget>[
-                UiTextField(textAlign: TextAlign.left, controller: TextEditingController(text: "left"),),
-                UiTextField(textAlign: TextAlign.right, controller: TextEditingController(text: "right"),),
-                UiTextField(textAlign: TextAlign.center, controller: TextEditingController(text: "center"),),
-                UiTextField(textAlign: TextAlign.justify, controller: TextEditingController(text: "justify"),),
-                UiTextField(textAlign: TextAlign.start, controller: TextEditingController(text: "start"),),
-                UiTextField(textAlign: TextAlign.end, controller: TextEditingController(text: "end"),),
-              ],
-            )
-          ),
-
+              title: "Aligned UiTextFields",
+              child: Column(
+                children: <Widget>[
+                  UiTextField(
+                    textAlign: TextAlign.left,
+                    controller: TextEditingController(text: "left"),
+                  ),
+                  UiTextField(
+                    textAlign: TextAlign.right,
+                    controller: TextEditingController(text: "right"),
+                  ),
+                  UiTextField(
+                    textAlign: TextAlign.center,
+                    controller: TextEditingController(text: "center"),
+                  ),
+                  UiTextField(
+                    textAlign: TextAlign.justify,
+                    controller: TextEditingController(text: "justify"),
+                  ),
+                  UiTextField(
+                    textAlign: TextAlign.start,
+                    controller: TextEditingController(text: "start"),
+                  ),
+                  UiTextField(
+                    textAlign: TextAlign.end,
+                    controller: TextEditingController(text: "end"),
+                  ),
+                ],
+              )),
           Item(
-            title: "UiTextFields Keyboard Types",
-            child: Column(
-              children: <Widget>[
-                UiTextField(keyboardType: KeyboardType.defaultType, controller: TextEditingController(text: "KeyboardType.defaultType"),),
-                UiTextField(keyboardType: KeyboardType.asciiCapable, controller: TextEditingController(text: "KeyboardType.asciiCapable"),),
-                UiTextField(keyboardType: KeyboardType.numbersAndPunctuation, controller: TextEditingController(text: "KeyboardType.numbersAndPunctuation"),),
-                UiTextField(keyboardType: KeyboardType.url, controller: TextEditingController(text: "KeyboardType.url"),),
-                UiTextField(keyboardType: KeyboardType.numberPad, controller: TextEditingController(text: "KeyboardType.numberPad"),),
-                UiTextField(keyboardType: KeyboardType.phonePad, controller: TextEditingController(text: "KeyboardType.phonePad"),),
-                UiTextField(keyboardType: KeyboardType.namePhonePad, controller: TextEditingController(text: "KeyboardType.namePhonePad"),),
-                UiTextField(keyboardType: KeyboardType.emailAddress, controller: TextEditingController(text: "KeyboardType.emailAddress"),),
-                UiTextField(keyboardType: KeyboardType.decimalPad, controller: TextEditingController(text: "KeyboardType.decimalPad"),),
-                UiTextField(keyboardType: KeyboardType.twitter, controller: TextEditingController(text: "KeyboardType.twitter"),),
-                UiTextField(keyboardType: KeyboardType.webSearch, controller: TextEditingController(text: "KeyboardType.webSearch"),),
-                UiTextField(keyboardType: KeyboardType.asciiCapableNumberPad, controller: TextEditingController(text: "KeyboardType.asciiCapableNumberPad"),),
-
-              ],
-            )
-          ),
-
+              title: "UiTextFields Keyboard Types",
+              child: Column(
+                children: <Widget>[
+                  UiTextField(
+                    keyboardType: KeyboardType.defaultType,
+                    controller: TextEditingController(text: "KeyboardType.defaultType"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.asciiCapable,
+                    controller: TextEditingController(text: "KeyboardType.asciiCapable"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.numbersAndPunctuation,
+                    controller: TextEditingController(text: "KeyboardType.numbersAndPunctuation"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.url,
+                    controller: TextEditingController(text: "KeyboardType.url"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.numberPad,
+                    controller: TextEditingController(text: "KeyboardType.numberPad"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.phonePad,
+                    controller: TextEditingController(text: "KeyboardType.phonePad"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.namePhonePad,
+                    controller: TextEditingController(text: "KeyboardType.namePhonePad"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.emailAddress,
+                    controller: TextEditingController(text: "KeyboardType.emailAddress"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.decimalPad,
+                    controller: TextEditingController(text: "KeyboardType.decimalPad"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.twitter,
+                    controller: TextEditingController(text: "KeyboardType.twitter"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.webSearch,
+                    controller: TextEditingController(text: "KeyboardType.webSearch"),
+                  ),
+                  UiTextField(
+                    keyboardType: KeyboardType.asciiCapableNumberPad,
+                    controller: TextEditingController(text: "KeyboardType.asciiCapableNumberPad"),
+                  ),
+                ],
+              )),
+          Item(title: "Test", child: TextField()),
           SizedBox(
             height: 1000,
           )
