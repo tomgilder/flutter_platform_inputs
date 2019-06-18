@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: ListView(
-          children: Padding(
+        body: SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
               child: Column(
