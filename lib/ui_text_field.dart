@@ -1,3 +1,4 @@
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
@@ -197,6 +198,7 @@ class _UiTextFieldState extends State<UiTextField> {
 
   void _textFieldDidBeginEditing() {
     FocusScope.of(context).requestFocus(_effectiveFocusNode);
+    _scrollIntoView();
   }
 
   /// Editing stopped for the specified text field.
@@ -204,5 +206,17 @@ class _UiTextFieldState extends State<UiTextField> {
     if (widget?.onSubmitted != null) {
       widget.onSubmitted(text);
     }
-  }  
+  }
+
+  static const Duration _caretAnimationDuration = Duration(milliseconds: 100);
+  static const Curve _caretAnimationCurve = Curves.fastOutSlowIn;
+
+  void _scrollIntoView() {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      context.findRenderObject().showOnScreen(
+        duration: _caretAnimationDuration,
+        curve: _caretAnimationCurve,
+      );
+    });
+  }
 }
