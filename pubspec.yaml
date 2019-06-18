@@ -1,6 +1,6 @@
 name: platform_inputs
 description: Native text fields from Flutter. Currently iOS-only with support for UITextField.
-version: 0.0.1
+version: 0.0.2
 author: Tom Gilder <tom@gilder.dev>
 homepage: https://github.com/tomgilder/flutter_platform_inputs
 
