@@ -107,6 +107,28 @@ class _UiTextFieldTestPageState extends State<UiTextFieldTestPage> {
               ],
             )
           ),
+
+          Item(
+            title: "UiTextFields Keyboard Types",
+            child: Column(
+              children: <Widget>[
+                UiTextField(keyboardType: KeyboardType.defaultType, controller: TextEditingController(text: "KeyboardType.defaultType"),),
+                UiTextField(keyboardType: KeyboardType.asciiCapable, controller: TextEditingController(text: "KeyboardType.asciiCapable"),),
+                UiTextField(keyboardType: KeyboardType.numbersAndPunctuation, controller: TextEditingController(text: "KeyboardType.numbersAndPunctuation"),),
+                UiTextField(keyboardType: KeyboardType.url, controller: TextEditingController(text: "KeyboardType.url"),),
+                UiTextField(keyboardType: KeyboardType.numberPad, controller: TextEditingController(text: "KeyboardType.numberPad"),),
+                UiTextField(keyboardType: KeyboardType.phonePad, controller: TextEditingController(text: "KeyboardType.phonePad"),),
+                UiTextField(keyboardType: KeyboardType.namePhonePad, controller: TextEditingController(text: "KeyboardType.namePhonePad"),),
+                UiTextField(keyboardType: KeyboardType.emailAddress, controller: TextEditingController(text: "KeyboardType.emailAddress"),),
+                UiTextField(keyboardType: KeyboardType.decimalPad, controller: TextEditingController(text: "KeyboardType.decimalPad"),),
+                UiTextField(keyboardType: KeyboardType.twitter, controller: TextEditingController(text: "KeyboardType.twitter"),),
+                UiTextField(keyboardType: KeyboardType.webSearch, controller: TextEditingController(text: "KeyboardType.webSearch"),),
+                UiTextField(keyboardType: KeyboardType.asciiCapableNumberPad, controller: TextEditingController(text: "KeyboardType.asciiCapableNumberPad"),),
+
+              ],
+            )
+          ),
+
           SizedBox(
             height: 1000,
           )
